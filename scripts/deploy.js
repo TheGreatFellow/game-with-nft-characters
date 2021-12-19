@@ -20,7 +20,11 @@ const main = async () => {
             'Flashbinder',
             'Mercury Hammer',
             'Golem Gauntlet',
-        ] //specialAttack
+        ], //specialAttack
+        'Silco', // Boss
+        'https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/09/EN-US_ARCANE_Character_Silco_Vertical_4x5_RGB.jpg',
+        2000,
+        100
     )
     await gameContract.deployed()
     console.log('Contract deployed to:', gameContract.address)

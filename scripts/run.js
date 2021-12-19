@@ -20,20 +20,29 @@ const main = async () => {
             'Flashbinder',
             'Mercury Hammer',
             'Golem Gauntlet',
-        ] //specialAttack
+        ], //specialAttack
+        'Silco', // Boss
+        'https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/09/EN-US_ARCANE_Character_Silco_Vertical_4x5_RGB.jpg',
+        2000,
+        100
     )
     await gameContract.deployed()
     console.log('Contract is deployed to: ', gameContract.address)
-
     let txn
-
-    txn = await gameContract.mintCharacterNFT(4) // no of characters - 1
+    txn = await gameContract.mintCharacterNFT(2)
     await txn.wait()
 
-    // Get the value of the NFT's URI.
-    let returnedTokenUri = await gameContract.tokenURI(1)
+    txn = await gameContract.attackBoss()
+    await txn.wait()
 
-    console.log('Token URI:', returnedTokenUri)
+    txn = await gameContract.attackBoss()
+    await txn.wait()
+    // let txn
+    // txn = await gameContract.mintCharacterNFT(4) // no of characters - 1
+    // await txn.wait()
+    // // Get the value of the NFT's URI.
+    // let returnedTokenUri = await gameContract.tokenURI(1)
+    // console.log('Token URI:', returnedTokenUri)
 }
 
 const runMain = async () => {
